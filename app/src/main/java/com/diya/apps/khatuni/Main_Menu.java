@@ -6,12 +6,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -73,10 +75,18 @@ public class Main_Menu extends BaseActivity {
         bu5 = findViewById(R.id.bu5);
         bu6 = findViewById(R.id.bu6);
 
+        buttonEffect(bu1);
+        buttonEffect(bu2);
+        buttonEffect(bu3);
+        buttonEffect(bu4);
+        buttonEffect(bu5);
+        buttonEffect(bu6);
+
         animttv = findViewById(R.id.ttv);
 
         bu1.startAnimation(AnimationUtils.loadAnimation(Main_Menu.this, R.anim.alpha) );
        // bu3.clearAnimation();
+
 
         bu1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -495,5 +505,26 @@ public class Main_Menu extends BaseActivity {
         try {
             alertDlg.create().show();
         }catch (Exception ex){}
+    }
+
+    public static void buttonEffect(View button){
+        button.setOnTouchListener(new View.OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        v.getBackground().clearColorFilter();
+                        v.invalidate();
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
     }
 }
