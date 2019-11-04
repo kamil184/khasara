@@ -141,6 +141,14 @@ public class HomeActivity extends BaseActivity {
         intent.putExtra("to",to);
         intent.putExtra("number", number);
 
-        startActivity(intent);
+        startActivityForResult(intent,1);
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            finish();
+        }
     }
 }
