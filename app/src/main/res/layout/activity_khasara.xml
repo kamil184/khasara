@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/select_state"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:id="@+id/text12"
+        />
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:clipToPadding="false"
+        android:layout_above="@+id/adView"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
+        android:gravity="center"
+        android:layout_below="@+id/text12"
+        />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/native_ad_container"
+        ads:adUnitId="@string/banner_khasara_detail" />
+
+</RelativeLayout>

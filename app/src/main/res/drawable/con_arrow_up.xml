@@ -1,0 +1,25 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_empty="true"
+        >
+        <layer-list>
+            <item
+
+                android:height="50dp"
+                android:width="50dp"
+                android:gravity="center|center_vertical"
+                android:drawable="@drawable/con_ic_arrow_drop_up">
+            </item>
+        </layer-list>
+    </item>
+
+    <item android:state_expanded="true">
+        <layer-list>
+            <item
+                android:height="50dp"
+                android:width="50dp"
+                android:gravity="center|center_vertical"
+                android:drawable="@drawable/con_ic_arrow_drop_down">
+            </item>
+        </layer-list>
+    </item>
+    </selector>

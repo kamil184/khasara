@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/app_background"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="7dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_endColor"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:text="@string/PaymentCalculator"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layout_Input"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/TILength1"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etLength1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/edittext"
+                            android:digits="0123456789."
+                            android:gravity="left"
+                            android:hint="@string/unitArea"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberSigned"
+                            android:padding="10dp"
+                            android:textColor="@color/dark_endColor"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="18sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/dark_centerColor"
+                        android:padding="10dp"
+                        android:layout_gravity="center"/>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/TILength2"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etLength2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/edittext"
+                            android:digits="0123456789."
+                            android:hint="@string/unitPrice"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberSigned"
+                            android:padding="10dp"
+                            android:textColor="@color/dark_endColor"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="18sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_cal"
+                    android:textColor="@color/white"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/circle"
+                    android:text="@string/Calculate"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_Result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="7dp"
+        app:cardBackgroundColor="@color/card_background"
+        android:visibility="gone"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/dark_endColor"
+                android:textSize="18sp"
+                android:text="@string/Payment_result"/>
+
+            <ImageView
+                android:layout_width="64dp"
+                android:padding="10dp"
+                android:id="@+id/btnShare"
+                android:layout_gravity="center"
+                android:layout_height="64dp"
+                android:background="@drawable/ic_share"/>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:text="@string/unitArea"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textColor="@color/dark_endColor"
+                        android:layout_height="match_parent"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text=":"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/dark_centerColor"
+                        android:padding="5dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/dark_endColor"
+                        android:id="@+id/tvArea"
+                        android:layout_height="match_parent"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:text="@string/unitPrice"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textColor="@color/dark_endColor"
+                        android:layout_height="match_parent"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text=":"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/dark_centerColor"
+                        android:padding="5dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/dark_endColor"
+                        android:id="@+id/tvUnitPrice"
+                        android:layout_height="match_parent"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/color_a1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:text="@string/unitTotle"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:gravity="right"
+                        android:layout_weight="1"
+                        android:textColor="@color/dark_endColor"
+                        android:layout_height="match_parent"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/dark_endColor"
+                        android:id="@+id/tvResult"
+                        android:textSize="17sp"
+                        android:layout_height="match_parent"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

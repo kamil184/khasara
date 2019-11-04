@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0198F6</color>
+    <color name="colorPrimaryDark">#0198f6</color>
+    <color name="colorAccent">#14A759</color>
+    <color name="cardcolor">#e8e0e0</color>
+    <color name="main_white">#FFFFFF</color>
+
+    <color name="button">#81ee1d25</color>
+    <color name="grey">#f9f7f7</color>
+
+    <color name="card_color">#f9f7f7</color>
+    <color name="red">#ff0000</color>
+    <color name="transperent">#6efcfcfc</color>
+
+    <color name="blue_light">#2b0a79ff</color>
+    <color name="green_light">#33aa6f</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="app_background">#FFC107</color>
+    <color name="border_tv_light_green">#45FF00</color>
+
+    <color name="light_startColor">#647e57c2</color>
+    <color name="light_centerColor">#645e35b1</color>
+    <color name="light_endColor">#644527a0</color>
+
+    <color name="dark_startColor">#514d56</color>
+    <color name="dark_centerColor">#333036</color>
+    <color name="dark_endColor">#121213</color>
+
+    <color name="card_background">#FFF8E1</color>
+
+    <color name="color_a1">#96d74a57</color>
+    <color name="color_a2">#EEEEEE</color>
+
+    <color name="black">#000000</color>
+
+    <color name="faq_detail">#de1745</color>
+</resources>

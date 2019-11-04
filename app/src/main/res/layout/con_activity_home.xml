@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/con_landarea25"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:id="@+id/edit_linear"
+        android:background="@drawable/con_edittext_design2"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_value"
+            android:id="@+id/edittext"
+            android:background="@drawable/con_edittext_design2"
+            android:inputType="numberDecimal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="60dp"
+
+            />
+
+        <TextView
+            android:layout_marginLeft="-106dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/clear"
+            android:text="Clear"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/main_white"
+            android:gravity="center"
+            android:background="@drawable/con_button_design"
+            />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/first_unit"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edit_linear"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/homespinner"
+            android:paddingLeft="3dp"
+            android:textAlignment="center"
+            style="@style/spinner_style"
+            android:entries="@array/input_arrays"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textto"
+        android:gravity="center"
+        android:textSize="2sp"
+        android:layout_marginTop="1dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/second_unit"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:layout_below="@+id/textto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:id="@+id/linearLayout3">
+
+        <Spinner
+            android:id="@+id/hometospinner"
+            style="@style/spinner_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/input_arrays"
+            android:paddingLeft="3dp"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/con"
+        android:padding="10dp"
+        android:text="केल्क्युलेट करे"
+        android:background="@drawable/con_button_design"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_margin="20dp"
+        android:textSize="22sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lil"
+        android:layout_below="@+id/con"
+        >
+
+    <LinearLayout
+        android:id="@+id/native_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/con"
+        android:orientation="vertical"/>
+
+<!--    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="MEDIUM_RECTANGLE"
+        android:visibility="gone"
+        android:layout_below="@+id/native_ad_container"
+        ads:adUnitId="@string/banner_home_footer">
+    </com.google.android.gms.ads.AdView>-->
+    </LinearLayout>
+
+
+</RelativeLayout>
