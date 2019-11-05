@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "146457428013",
+    "firebase_url": "https://khasara-khatauni.firebaseio.com",
+    "project_id": "khasara-khatauni",
+    "storage_bucket": "khasara-khatauni.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146457428013:android:94dc9d96e2a36f1f",
+        "android_client_info": {
+          "package_name": "com.diya.apps.khatuni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146457428013-1sefnf1pn2gp0sn55ssf4j3313gt6ljp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "146457428013-1sefnf1pn2gp0sn55ssf4j3313gt6ljp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZi1tMIA8RiO6teYRJvvc6gg4Y_f-qgj8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

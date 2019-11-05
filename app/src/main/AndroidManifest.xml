@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.diya.apps.khatuni">
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+	<application
+		android:name=".App"
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme"
+		android:usesCleartextTraffic="true">
+		<activity android:name=".activities.facebookAd.FacebookNativeAdActivity"></activity>
+		<activity
+			android:name=".activities.apps.AppsActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".SplashScreen"
+			android:screenOrientation="portrait">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<uses-library
+			android:name="org.apache.http.legacy"
+			android:required="false" /> <!-- activity android:name="com.diya.apps.khatuni.Main_Menu" android:screenOrientation="portrait"/ -->
+		<activity
+			android:name=".Detail1"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".ExitApps"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".InActivity"
+			android:noHistory="true"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".News.NewsDetail"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".Khasara"
+			android:screenOrientation="portrait">
+			<intent-filter android:label="@string/filter_view_khasara">
+				<action android:name="android.intent.action.VIEW" />
+
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<!-- Accepts URIs that begin with "app://fit.tiip.com/exercise" -->
+				<data
+					android:host="com.diya.apps.khatuni"
+					android:pathPrefix="/khasara"
+					android:scheme="app" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".FaqActivity"
+			android:screenOrientation="portrait">
+			<intent-filter android:label="@string/filter_view_faq">
+				<action android:name="android.intent.action.VIEW" />
+
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<!-- Accepts URIs that begin with "app://fit.tiip.com/exercise" -->
+				<data
+					android:host="com.diya.apps.khatuni"
+					android:pathPrefix="/faq"
+					android:scheme="app" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".Converter.HomeActivity"
+			android:screenOrientation="portrait">
+			<intent-filter android:label="@string/filter_view_home">
+				<action android:name="android.intent.action.VIEW" />
+
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<!-- Accepts URIs that begin with "app://fit.tiip.com/exercise" -->
+				<data
+					android:host="com.diya.apps.khatuni"
+					android:pathPrefix="/home"
+					android:scheme="app" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".Converter.MainActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".Converter.Information"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".Main_Menu"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".News.NewsApp"
+			android:screenOrientation="portrait">
+			<intent-filter android:label="@string/filter_view_news">
+				<action android:name="android.intent.action.VIEW" />
+
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<!-- Accepts URIs that begin with "app://fit.tiip.com/exercise" -->
+				<data
+					android:host="com.diya.apps.khatuni"
+					android:pathPrefix="/news"
+					android:scheme="app" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".village.VillageApp"
+			android:screenOrientation="portrait">
+			<intent-filter android:label="@string/filter_view_village">
+				<action android:name="android.intent.action.VIEW" />
+
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<!-- Accepts URIs that begin with "app://fit.tiip.com/exercise" -->
+				<data
+					android:host="com.diya.apps.khatuni"
+					android:pathPrefix="/village"
+					android:scheme="app" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".village.VillageDetail"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name="com.facebook.ads.AudienceNetworkActivity"
+			android:hardwareAccelerated="true" />
+		<activity
+			android:name=".loan.AreaActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name=".loan.PaymentCalculateActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".loan.PercentageActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name=".loan.LoanMenuActivity"
+			android:screenOrientation="portrait">
+			<intent-filter android:label="@string/filter_view_menu">
+				<action android:name="android.intent.action.VIEW" />
+
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<!-- Accepts URIs that begin with "app://fit.tiip.com/exercise" -->
+				<data
+					android:host="com.diya.apps.khatuni"
+					android:pathPrefix="/menu"
+					android:scheme="app" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".loan.LoanMainActivity"
+			android:screenOrientation="portrait"/>
+
+		<provider
+			android:name=".GenericFileProvider"
+			android:authorities="com.diya.apps.khatuni.provider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/provider_paths" />
+		</provider>
+
+		<meta-data
+			android:name="com.google.android.gms.ads.APPLICATION_ID"
+			android:value="@string/YOUR_ADMOB_APP_ID" />
+	</application>
+
+</manifest>

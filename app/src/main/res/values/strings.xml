@@ -1,0 +1,250 @@
+<resources xmlns:tools="http://schemas.android.com/tools"  tools:ignore="MissingTranslation">
+	<string name="app_name">Khasara Khatauni</string>
+
+	<string name="YOUR_ADMOB_APP_ID">ca-app-pub-3940256099942544~3347511713</string>
+	<string name="interstitial_sp_yes">ca-app-pub-3940256099942544/1033173712</string>
+	<string name="banner_lb_village">ca-app-pub-3940256099942544/6300978111</string>
+	<string name="banner_mr_news_main">ca-app-pub-3940256099942544/6300978111</string>
+	<string name="banner_main_menu">ca-app-pub-3940256099942544/6300978111</string>
+	<string name="banner_khasara_detail">ca-app-pub-3940256099942544/6300978111</string>
+	//Detail1 and khasra detail
+	<!--<string name="banner_dialog_village_install">ca-app-pub-3940256099942544/6300978111</string>-->
+
+	<string name="fb_interstitial_front">1730933210549031_1981923348783348</string>
+	//Main_menu to Khasara
+	<string name="fb_native_loan">1730933210549031_1982263115416038</string>
+	<string name="fb_native_before_detail">1730933210549031_2080907525551596</string>
+	//MenuActivity
+	<!--<string name="fb_banner_khasara">1730933210549031_1982262758749407</string> //Khasara-->
+
+	<!--<string name="fb_native_banner_land_terms">1730933210549031_2000577963584553</string>-->
+	<string name="fb_banner_khasara_state_villagemaps">1730933210549031_2000575193584830</string>
+	<string name="fb_banner_state_khasara">1730933210549031_2000574826918200</string>
+
+	<string name="filter_view_khasara">action_view_khasara</string>
+	<string name="filter_view_faq">action_view_faq</string>
+	<string name="filter_view_home">action_view_home</string>
+	<string name="filter_view_news">action_view_news</string>
+	<string name="filter_view_village">action_view_village</string>
+	<string name="filter_view_menu">action_view_menu</string>
+
+	<string name="plz_wait">यदी सर्वर बंध होने के कारण डेटा नही मील रहा है तो, थोडी देर बाद पुनः प्रयास करे।</string>
+
+	<string name="app_feature">जय हिंद। \nयह एप्प सिर्फ जमीन रेकोर्ड देखने को काम नही आता, \n1. अपने गांव का नकशा देखे। \n2. एक बिघा मे कितने स्के. फिट आते है? \n3.लोन और ब्याज की गीनती करे। \n4. जमीन जायदाद से जूडे शब्द का मतलब जाने।</string>
+
+
+	<string name="select_state">अपना राज्य चूने</string>
+
+	<string name="first_unit">पहला एकम चूने</string>
+	<string name="second_unit">दूसरा एकम चूने</string>
+	<string name="enter_value">यहा सख्या दर्ज करे।</string>
+
+
+	<string name="rate">Rate Us</string>
+	<string name="more">More Apps</string>
+
+	<string name="khat_share">यह एप्प के जरीये आप खसरा, खतौनी, खाते एवम ७/१२ की जानकारी प्राप्त कर सकते हो। ईसमे बिघा का स्कवेर फीट का केल्कयुलेटर भी दीया हुआ है। ईसके अलावा आप लोन, ब्याज और पेमेन्ट की भी गीनती कर सकते हो</string>
+	<string name="share_ask">आपको एप्प उपयोगी लगा हो तो, दोस्तो से शेयर जरुर करे। जय हिंद। </string>
+	<string name="share">यह एप्प के जरीये आप खसरा, खतौनी, खाते एवम ७/१२ की जानकारी प्राप्त कर सकते हो। ईसमे बिघा का स्कवेर फीट का केल्कयुलेटर भी दीया हुआ है। ईसके अलावा आप लोन, ब्याज और पेमेन्ट की भी गीनती कर सकते हो</string>
+	<string name="share_yes">YES</string>
+	<string name="share_no">NO</string>
+
+	<string name="length">लंबाई</string>
+	<string name="width">चौडाई</string>
+
+	<string name="back_activity">बहार जाने के लिए फिर से एक बार बेक दबाये।</string>
+
+
+	<string name="rate_us">Do you really want to give this app ratings?</string>
+	<string name="internet">You need to start the internet to go ahead.</string>
+
+	<string name="menu1">खसरा खतौनी देखे</string>
+	<string name="menu2">जमीन केल्कुलेटर</string>
+	<string name="menu3">खेती समाचार</string>
+	<string name="menu4">लोन केल्कुलेटर</string>
+	<string name="menu5">शब्दावली: जमीन संबंधीत</string>
+	<string name="menu6">सभी गांव का नकशा</string>
+
+
+	<string name="unit1">वर्ग फीट, स्के. फीट\nSquare Feet</string>
+	<string name="unit2">हेक्टेयर\nHectares</string>
+	<string name="unit3">एकड़\nAcres</string>
+	<string name="unit4">वर्ग मीटर, स्के. मीटर\nSquare Meter</string>
+	<string name="unit5">यार्ड, गज, વાર\nSquare Yards</string>
+	<string name="unit6">बिघा\nBhighas UP</string>
+	<string name="unit7">बिघा\nBhighas Western UP</string>
+	<string name="unit8">बिघा\nBhighas MP</string>
+	<string name="unit9">बिघा\nBhighas Rajsthan</string>
+	<string name="unit10">बिघा\nBhighas Bangal</string>
+	<string name="unit11">बिघा\nBhighas Gujarat</string>
+	<string name="unit12">बिघा\nBhighas Punjab</string>
+	<string name="unit13">बिघा\nBhighas Uttarakhand</string>
+	<string name="unit14">बिघा\nBhighas Himachal</string>
+	<string name="unit15">बिस्वा\nBiswa</string>
+	<string name="unit16">गट्ठा, गुट्ठा, ગુથા\nGuntha</string>
+	<string name="unit17">कनाल, ਕਨਾਲ\nKanal</string>
+	<string name="unit18">चटक\nChataks</string>
+	<string name="unit19">कोथा\nKottha</string>
+	<string name="unit20">चौथाई एकड़, रूद\nRood</string>
+
+	<string name="unit23">सेन्ट्स\nCents</string>
+	<string name="unit21">अंकदम\n(Aankadam)</string>
+	<string name="unit22">Lagga</string>
+	<string name="unit24">एरेस\nAres</string>
+
+
+	<!--array name="input_arrays">
+        <item>Aankadam</item>
+        <item>Acres</item>
+        <item>Ares</item>
+        <item>Bhighas</item>
+        <item>Biswa</item>
+        <item>Cents</item>
+        <item>Chataks</item>
+        <item>Grounds</item>
+        <item>Guntha</item>
+        <item>Hectares</item>
+        <item>Kanal</item>
+        <item>Kottha</item>
+        <item>Rood</item>
+
+
+        <item>Square Feet</item>
+
+        <item>Square Meter</item>
+
+        <item>Square Yards</item>
+    </array-->
+
+
+	<array name="input_arrays">
+
+		<item>वर्ग फीट, स्के. फीट\nSquare Feet</item>
+		<item>हेक्टेयर\nHectares</item>
+		<item>एकड़\nAcres</item>
+		<item>वर्ग मीटर, स्के. मीटर\nSquare Meter</item>
+		<item>यार्ड, गज, વાર\nSquare Yards</item>
+		<item>बिघा (उतर प्रदेश)</item>
+		<item>बिघा (पस्चीमी यु.पी)</item>
+		<item>बिघा (मध्य प्रदेश)</item>
+		<item>बिघा (राजस्थान)</item>
+		<item>বিঘা (বংগাল)</item>
+		<item>વિઘા (ગુજરાત)</item>
+		<item>ਬਿਘਾ (ਪਂਜਾਬ)</item>
+		<item>बिघा (उतराखंड)</item>
+		<item>बिघा (हिमाचल प्रदेश)</item>
+		<item>बिस्वा\nBiswa</item>
+		<item>गट्ठा, गुट्ठा, ગુથા\nGuntha</item>
+		<item>कनाल, ਕਨਾਲ\nKanal</item>
+		<item>चटक\nChataks</item>
+		<item>कोथा\nKottha</item>
+		<item>चौथाई एकड़, रूद\nRood</item>
+		<item>सेन्ट्स\nCents</item>
+		<item>अंकदम\nAankadam</item>
+		<item>Lagga\nलागा बिहार</item>
+		<item>एरेस\nAres</item>
+
+
+	</array>
+	<string name="title_activity_scrolling">ScrollingActivity</string>
+	<string name="large_text">
+        E-4 = value/1000\n\nE 4 = value*1000
+
+    </string>
+	<string name="action_settings">Settings</string>
+	<string name="share_friends">Share to friends</string>
+	<string name="title_activity_information">माहिती</string>
+
+	<string name="rs">₹</string>
+
+	<string name="hint_principal">मुख्य राशि ₹</string>
+	<string name="hint_interest">ब्याज प्रति वर्ष %</string>
+	<string name="hint_years">कितने साल?</string>
+	<string name="hint_emi">मासिक किस्त/हप्ता</string>
+	<string name="hint_interest_total">कुल ब्याज</string>
+	<string name="hint_paymentt_total">कुल पेमेन्ट</string>
+
+	<string name="LoanCalculator">लोन केल्क्युलेटर</string>
+	<string name="AreaCalculator">क्षेत्रफल - एरीया</string>
+	<string name="PaymentCalculator">टका - प्रतिशत केल्कुलेटर</string>
+	<string name="Percentageculator">पेमेन्ट की गीनती</string>
+
+	<string name="unitArea">क्षेत्रफल</string>
+	<string name="unitPrice">एक का भाव</string>
+	<string name="unitTotle">कुल किंमत</string>
+
+	<string name="perAmount">कुल रकम</string>
+	<string name="perPercentage">प्रतिशत %</string>
+	<string name="perTotle">कुल</string>
+
+	<string name="Calculate">गिनती करे</string>
+	<string name="Payment_Calculate">पेमेन्ट केल्कुलेट</string>
+
+	<string name="Area_result">क्षेत्रफल की गीनती</string>
+	<string name="Loan_result">लोन की गीनती</string>
+	<string name="Payment_result">पेमेन्ट की गीनती</string>
+	<string name="Percentage_result">प्रतिशत की गीनती</string>
+
+	<string name="sq_Meter">चो. मीटर : </string>
+	<string name="sq_Yards">चो. यार्ड : </string>
+	<string name="sq_Feets">चो. फीट  : </string>
+
+
+	<string name="Meter">मीटर</string>
+	<string name="Foot">फीट</string>
+	<string name="Yard">यार्ड/गझ</string>
+
+	<string name="faq">शब्दावली: जमीन-जायदाद संबंधी</string>
+	<string name="faq_english">Land Revenue Terminology</string>
+	<string name="hindi">हिन्दी</string>
+	<string name="english">English</string>
+
+	<string name="a1">लोन केल्क्युलेटर</string>
+	<string name="a2">क्षेत्रफल - एरीया</string>
+	<string name="a3">टका - प्रतिशत केल्कुलेटर</string>
+	<string name="a4">पेमेन्ट की गीनती</string>
+
+	<string name="share_it">शेयर करे</string>
+
+	<string name="to">To</string>
+
+	<string name="spinner_unit">नापने की ईकाई बताये</string>
+
+	<string name="btn_error">नंबर बराबर डाले।</string>
+
+	<string name="no_app_store">No App store found in the device. To rate this app, play store is required. </string>
+	<string name="loan_main_act_error_1">Enter Principal Amount</string>
+	<string name="loan_main_act_error_2">Enter Interest Rate</string>
+	<string name="loan_main_act_error_3">Enter Years</string>
+	<string name="loan_percentage_act_error_1">Enter Amount</string>
+	<string name="loan_percentage_act_error_2">Enter Percentage</string>
+	<string name="loan_area_act_error_1">Enter Meter</string>
+	<string name="loan_area_act_error_2">Enter Centimetre</string>
+	<string name="loan_payment_calculate_act_error_1">Enter Unit Area</string>
+	<string name="loan_payment_calculate_act_error_2">Enter Unit Price</string>
+	<string name="dialog_village_title">सभी गाँव का नक्शा</string>
+	<string name="dialog_village_description1">अपने शहर, गांव, तहसील के नक्शे को बेहतर देखने के लिए, इस ऐप को इंस्टॉल करें। वहां मौजूद आसपास की जगह की जानकारी भी ले।</string>
+	<string name="toast_loan_main_act_max_years">Max Number Of Years 100</string>
+	<string name="toast_loan_main_act_check_input">Invalid Value, Check Your Input</string>
+	<string name="loan_area_act_error_4">Enter Inch</string>
+	<string name="loan_area_act_error_3">Enter Feet</string>
+	<string name="loan_area_act_error_5">Enter Yard</string>
+	<string name="btn_village_install_now">Install Now</string>
+	<string name="install_app_web_view">Install App</string>
+	<string name="dialog_village_description2">यह एप्प आपको अपने शहर और गावं के नजदीक की जगह की जानकारी पार्प्त करने मे मदद करेगी। ईस एप्प को खास भारत के लिए बनाई गई है। धन्यवाद।</string>
+	<string name="village_web_view_description">भारत के कोई भी शहर, गांव, जील्ला वं नगर का नक्शा देखे।</string>
+	<string name="content_description">content_description</string>
+	<string name="no_thanks">No Thanks</string>
+
+
+	<!-- Apps Items -->
+	<string name="title_ad_1">हिन्दी अंग्रेजी ट्रान्सलेटर</string>
+	<string name="description_ad_1">फ्री ट्रान्सलेटर और ओफलाईन डिक्शनरी एप्प।</string>
+	<string name="link_ad_1">https://play.google.com/store/apps/details?id=com.diyaapp.translator</string>
+
+	<string name="title_ad_2">सभी गावं का नक्शा</string>
+	<string name="description_ad_2">भारत के सभी गांव का नक्शा और मौसम की जानकारी</string>
+	<string name="link_ad_2">https://play.google.com/store/apps/details?id=com.diyapp.villagemap</string>
+
+
+</resources>

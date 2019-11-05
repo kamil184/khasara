@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Apps Items -->
+	<string name="title_ad_1">English Hindi translator</string>
+	<string name="description_ad_1">Free translator and offline dictionary app</string>
+
+	<string name="title_ad_2">Village maps of India</string>
+	<string name="description_ad_2">See your village\'s map and nearby places</string>
+
+</resources>
