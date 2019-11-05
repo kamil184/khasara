@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -43,7 +44,7 @@ public class LoanMainActivity extends BaseActivity {
 
     Button emiCalcBtn;
     CardView cardView;
-    TextView tvEmi,tvPaymentTotal,tvIntrestTotal;
+    TextView tvEmi,tvPaymentTotal,tvIntrestTotal, tvPrincipal, tvInterest, tvYears;
     EditText etPrincipal, etInterest, etYears;
     ImageView btnShare;
     private HelpingUtils mTextUtilEmptyError;
@@ -70,6 +71,35 @@ public class LoanMainActivity extends BaseActivity {
         tvPaymentTotal = (TextView)findViewById(R.id.tvPaymentTotal);
         btnShare = (ImageView)findViewById(R.id.btnShare);
         emiCalcBtn = (Button) findViewById(R.id.btn_calculate2);
+        tvInterest = findViewById(R.id.blat_2);
+        tvPrincipal = findViewById(R.id.blat_1);
+        tvYears = findViewById(R.id.blat_3);
+
+        final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        tvInterest.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etInterest.requestFocus();
+                imm.showSoftInput(etInterest, InputMethodManager.SHOW_IMPLICIT);
+            }
+        });
+
+        tvPrincipal.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etPrincipal.requestFocus();
+                imm.showSoftInput(etPrincipal,InputMethodManager.SHOW_IMPLICIT);
+            }
+        });
+
+        tvYears.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etYears.requestFocus();
+                imm.showSoftInput(etYears,InputMethodManager.SHOW_IMPLICIT);
+            }
+        });
 
         btnShare.startAnimation(AnimationUtils.loadAnimation(LoanMainActivity.this, R.anim.alpha_whapp) );
 
