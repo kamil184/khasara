@@ -15,11 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -42,6 +44,9 @@ import com.facebook.ads.NativeAd;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.transitionseverywhere.Fade;
+import com.transitionseverywhere.Transition;
+import com.transitionseverywhere.TransitionManager;
 
 
 public class Detail1 extends BaseActivity {
@@ -63,6 +68,10 @@ public class Detail1 extends BaseActivity {
     private LinearLayout fb_native_container;
     LinearLayout share;
     RelativeLayout screen_s;
+    TextView shareText;
+    ImageView shareImage;
+    int previousScrollY;
+    boolean isScrolledDown = false, isScrolledUp = false;
     // private AdView mAdView;
 
     TextView ttw;
@@ -105,8 +114,10 @@ public class Detail1 extends BaseActivity {
         // showNativeAd();
 
         share = findViewById(R.id.share);
+        shareText = share.findViewById(R.id.share_text);
+        shareImage = share.findViewById(R.id.share_image);
 
-        share.startAnimation(AnimationUtils.loadAnimation(Detail1.this, R.anim.alpha_whapp) );
+        share.startAnimation(AnimationUtils.loadAnimation(Detail1.this, R.anim.alpha_whapp));
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,7 +136,7 @@ public class Detail1 extends BaseActivity {
                     File filepath = Environment.getExternalStorageDirectory();
 
                     // Create a new folder AndroidBegin in SD Card
-                    File dir = new File(filepath.getAbsolutePath() + "/"+getString(R.string.app_name)+"/");
+                    File dir = new File(filepath.getAbsolutePath() + "/" + getString(R.string.app_name) + "/");
                     dir.mkdirs();
                     // Create a name for the saved image
                     File file = new File(dir, "sample.png");
@@ -134,7 +145,7 @@ public class Detail1 extends BaseActivity {
                         bit.compress(Bitmap.CompressFormat.PNG, 100, output);
                         output.flush();
                         output.close();
-                    }  catch (FileNotFoundException e) {
+                    } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -144,11 +155,11 @@ public class Detail1 extends BaseActivity {
                     // Uri uri = Uri.fromFile(file);
 
                     Uri uri = FileProvider.getUriForFile(Detail1.this, Detail1.this.getApplicationContext().getPackageName() + ".provider", file);
-                    String appname=getString(R.string.app_name);
-                    String ExternalString= getString(R.string.khat_share);
+                    String appname = getString(R.string.app_name);
+                    String ExternalString = getString(R.string.khat_share);
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, appname+"\n"+ ExternalString + "\n" + "https://play.google.com/store/apps/details?id=" + getPackageName());
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, appname + "\n" + ExternalString + "\n" + "https://play.google.com/store/apps/details?id=" + getPackageName());
                     sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
                     sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     sendIntent.setType("text/plain");
@@ -173,6 +184,33 @@ public class Detail1 extends BaseActivity {
 
         interstitial = new InterstitialAd(this);
         interstitial.setAdUnitId(getString(R.string.interstitial_sp_yes));
+
+        webView1.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                if (webView1.getScrollY() > previousScrollY && shareImage.getVisibility() != View.GONE && !isScrolledDown) {
+                    isScrolledUp = false;
+                    isScrolledDown = true;
+                    TransitionManager.beginDelayedTransition(share);
+                    shareImage.setVisibility(View.GONE);
+                    shareText.setVisibility(View.GONE);
+
+
+                } else if (webView1.getScrollY() < previousScrollY && shareImage.getVisibility() != View.VISIBLE && !isScrolledUp) {
+                    isScrolledUp = true;
+                    isScrolledDown = false;
+                    Transition transition = new Fade(Fade.IN);
+                    transition.setDuration(1000);
+                    transition.addTarget(shareImage);
+                    transition.addTarget(shareText);
+                    TransitionManager.beginDelayedTransition(share, transition);
+                    shareImage.setVisibility(View.VISIBLE);
+                    shareText.setVisibility(View.VISIBLE);
+
+                }
+                previousScrollY = webView1.getScrollY();
+            }
+        });
     }
 
     public static Bitmap getScreenShot(View view) {
@@ -199,7 +237,7 @@ public class Detail1 extends BaseActivity {
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(webIntent);
             } catch (Exception e) {
-                Toast.makeText(Detail1.this , getString(R.string.no_app_store) ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(Detail1.this, getString(R.string.no_app_store), Toast.LENGTH_SHORT).show();
             }
             return true;
         }
@@ -256,7 +294,7 @@ public class Detail1 extends BaseActivity {
             webView1.goBack();
 
         } else {
-            if (i == 0){
+            if (i == 0) {
                 i++;
                 Toast.makeText(Detail1.this, getString(R.string.back_activity),
                         Toast.LENGTH_LONG).show();

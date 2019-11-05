@@ -12,14 +12,17 @@ import android.support.v4.content.FileProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.diya.apps.khatuni.R;
@@ -27,6 +30,9 @@ import com.diya.apps.khatuni.baseActivity.BaseActivity;
 import com.facebook.ads.AudienceNetworkAds;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.transitionseverywhere.Fade;
+import com.transitionseverywhere.Transition;
+import com.transitionseverywhere.TransitionManager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,9 +48,9 @@ public class VillageDetail extends BaseActivity {
 
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = { Manifest.permission.WRITE_EXTERNAL_STORAGE };
+    private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-     private com.facebook.ads.InterstitialAd interstitialAd;
+    private com.facebook.ads.InterstitialAd interstitialAd;
     int pos = 0;
     private ProgressBar progress;
     public static String webUrl;
@@ -54,6 +60,10 @@ public class VillageDetail extends BaseActivity {
     RelativeLayout screen_s;
     WebView webView1;
     LinearLayout installApp;
+    int previousScrollY;
+    TextView shareText;
+    ImageView shareImage;
+    boolean isScrolledDown = false, isScrolledUp = false;
 
     //private com.facebook.ads.InterstitialAd interstitialAd;
     int i;
@@ -99,8 +109,8 @@ public class VillageDetail extends BaseActivity {
         webView1.setVisibility(View.GONE);
         webView1.post(new Runnable() {
             public void run() {
-                if (webView1.getContentHeight() * webView1.getResources().getDisplayMetrics().density >= webView1.getScrollY() ){
-                    webView1.scrollBy(0, (int)webView1.getHeight());
+                if (webView1.getContentHeight() * webView1.getResources().getDisplayMetrics().density >= webView1.getScrollY()) {
+                    webView1.scrollBy(0, (int) webView1.getHeight());
 
                 }
             }
@@ -114,6 +124,9 @@ public class VillageDetail extends BaseActivity {
         //showNativeAd();
 
         share = findViewById(R.id.share);
+        shareText = share.findViewById(R.id.share_text);
+        shareImage = share.findViewById(R.id.share_image);
+
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +147,7 @@ public class VillageDetail extends BaseActivity {
                 File filepath = Environment.getExternalStorageDirectory();
 
                 // Create a new folder AndroidBegin in SD Card
-                File dir = new File(filepath.getAbsolutePath() + "/"+getString(R.string.app_name)+"/");
+                File dir = new File(filepath.getAbsolutePath() + "/" + getString(R.string.app_name) + "/");
                 dir.mkdirs();
                 // Create a name for the saved image
                 File file = new File(dir, "sample.png");
@@ -143,7 +156,7 @@ public class VillageDetail extends BaseActivity {
                     bit.compress(Bitmap.CompressFormat.PNG, 100, output);
                     output.flush();
                     output.close();
-                }  catch (FileNotFoundException e) {
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -151,11 +164,11 @@ public class VillageDetail extends BaseActivity {
 
                 // Locate the image to Share
                 Uri uri = FileProvider.getUriForFile(VillageDetail.this, getPackageName() + ".provider", file);
-                String appname=getString(R.string.app_name);
-                String ExternalString= getString(R.string.khat_share);
+                String appname = getString(R.string.app_name);
+                String ExternalString = getString(R.string.khat_share);
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, appname+"\n"+ ExternalString + "\n" + "https://play.google.com/store/apps/details?id=" + getPackageName());
+                sendIntent.putExtra(Intent.EXTRA_TEXT, appname + "\n" + ExternalString + "\n" + "https://play.google.com/store/apps/details?id=" + getPackageName());
                 sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 sendIntent.setType("text/plain");
@@ -166,6 +179,36 @@ public class VillageDetail extends BaseActivity {
 
         //webView1.setWebViewClient(new myWebViewClient());
         //webView1.setWebChromeClient(new GeoWebChromeClient());
+
+
+        webView1.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                if (webView1.getScrollY() > previousScrollY && shareImage.getVisibility() != View.GONE && !isScrolledDown) {
+                    isScrolledUp = false;
+                    isScrolledDown = true;
+                    TransitionManager.beginDelayedTransition(share);
+                    shareImage.setVisibility(View.GONE);
+                    shareText.setVisibility(View.GONE);
+
+
+                } else if (webView1.getScrollY() < previousScrollY && shareImage.getVisibility() != View.VISIBLE && !isScrolledUp) {
+                    isScrolledUp = true;
+                    isScrolledDown = false;
+                    Transition transition = new Fade(Fade.IN);
+                    transition.setDuration(1000);
+                    transition.addTarget(shareImage);
+                    transition.addTarget(shareText);
+                    TransitionManager.beginDelayedTransition(share, transition);
+                    shareImage.setVisibility(View.VISIBLE);
+                    shareText.setVisibility(View.VISIBLE);
+
+                }
+                previousScrollY = webView1.getScrollY();
+            }
+        });
+
+
     }
 
     public static Bitmap getScreenShot(View view) {
@@ -191,8 +234,8 @@ public class VillageDetail extends BaseActivity {
                 Uri webpage = Uri.parse("market://details?id=" + getPackageName());
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(webIntent);
-            }catch (Exception e){
-                Toast.makeText(VillageDetail.this , getString(R.string.no_app_store) ,Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(VillageDetail.this, getString(R.string.no_app_store), Toast.LENGTH_SHORT).show();
             }
 
             return true;
@@ -250,7 +293,7 @@ public class VillageDetail extends BaseActivity {
             webView1.goBack();
 
         } else {
-            if (i == 0){
+            if (i == 0) {
                 i++;
                 Toast.makeText(VillageDetail.this, getString(R.string.back_activity),
                         Toast.LENGTH_LONG).show();

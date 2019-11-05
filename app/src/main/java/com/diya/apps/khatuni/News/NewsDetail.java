@@ -15,18 +15,24 @@ import android.support.v4.content.FileProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.diya.apps.khatuni.R;
 import com.diya.apps.khatuni.baseActivity.BaseActivity;
 import com.google.android.gms.ads.InterstitialAd;
+import com.transitionseverywhere.Fade;
+import com.transitionseverywhere.Transition;
+import com.transitionseverywhere.TransitionManager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,6 +60,11 @@ public class NewsDetail extends BaseActivity {
     private LinearLayout fb_native_container;
     LinearLayout share;
     RelativeLayout screen_s;
+    WebView webView1;
+    TextView shareText;
+    ImageView shareImage;
+    int previousScrollY;
+    boolean isScrolledDown = false, isScrolledUp = false;
 
 
     @Override
@@ -67,11 +78,10 @@ public class NewsDetail extends BaseActivity {
         id = intent.getIntExtra("id", 0);
 
 
-
-        WebView webView1 = findViewById(R.id.webview);
+        webView1 = findViewById(R.id.webview);
         try {
             webView1.loadUrl((news_link[id]));
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(NewsDetail.this, "try again after sometime",
                     Toast.LENGTH_LONG).show();
 
@@ -90,6 +100,9 @@ public class NewsDetail extends BaseActivity {
         //showNativeAd();
 
         share = findViewById(R.id.share);
+        shareText = share.findViewById(R.id.share_text);
+        shareImage = share.findViewById(R.id.share_image);
+
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +122,7 @@ public class NewsDetail extends BaseActivity {
                 File filepath = Environment.getExternalStorageDirectory();
 
                 // Create a new folder AndroidBegin in SD Card
-                File dir = new File(filepath.getAbsolutePath() + "/"+getString(R.string.app_name)+"/");
+                File dir = new File(filepath.getAbsolutePath() + "/" + getString(R.string.app_name) + "/");
                 dir.mkdirs();
                 // Create a name for the saved image
                 File file = new File(dir, "sample.png");
@@ -118,7 +131,7 @@ public class NewsDetail extends BaseActivity {
                     bit.compress(Bitmap.CompressFormat.PNG, 100, output);
                     output.flush();
                     output.close();
-                }  catch (FileNotFoundException e) {
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -126,11 +139,11 @@ public class NewsDetail extends BaseActivity {
 
                 // Locate the image to Share
                 Uri uri = FileProvider.getUriForFile(NewsDetail.this, getPackageName() + ".provider", file);
-                String appname=getString(R.string.app_name);
-                String ExternalString= getString(R.string.khat_share);
+                String appname = getString(R.string.app_name);
+                String ExternalString = getString(R.string.khat_share);
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, appname+"\n"+ ExternalString + "\n" + "https://play.google.com/store/apps/details?id=" + getPackageName());
+                sendIntent.putExtra(Intent.EXTRA_TEXT, appname + "\n" + ExternalString + "\n" + "https://play.google.com/store/apps/details?id=" + getPackageName());
                 sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 sendIntent.setType("text/plain");
@@ -144,12 +157,35 @@ public class NewsDetail extends BaseActivity {
         //webView1.setWebChromeClient(new GeoWebChromeClient());
 
 
-
-
-
         interstitial = new InterstitialAd(this);
         interstitial.setAdUnitId(getString(R.string.interstitial_sp_yes));
 
+        webView1.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                if (webView1.getScrollY() > previousScrollY && shareImage.getVisibility() != View.GONE && !isScrolledDown) {
+                    isScrolledUp = false;
+                    isScrolledDown = true;
+                    TransitionManager.beginDelayedTransition(share);
+                    shareImage.setVisibility(View.GONE);
+                    shareText.setVisibility(View.GONE);
+
+
+                } else if (webView1.getScrollY() < previousScrollY && shareImage.getVisibility() != View.VISIBLE && !isScrolledUp) {
+                    isScrolledUp = true;
+                    isScrolledDown = false;
+                    Transition transition = new Fade(Fade.IN);
+                    transition.setDuration(1000);
+                    transition.addTarget(shareImage);
+                    transition.addTarget(shareText);
+                    TransitionManager.beginDelayedTransition(share, transition);
+                    shareImage.setVisibility(View.VISIBLE);
+                    shareText.setVisibility(View.VISIBLE);
+
+                }
+                previousScrollY = webView1.getScrollY();
+            }
+        });
 
     }
 
@@ -162,14 +198,11 @@ public class NewsDetail extends BaseActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-
 
 
     @Override
@@ -180,8 +213,8 @@ public class NewsDetail extends BaseActivity {
                 Uri webpage = Uri.parse("market://details?id=" + getPackageName());
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(webIntent);
-            }catch (Exception e){
-                Toast.makeText(NewsDetail.this , getString(R.string.no_app_store) ,Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(NewsDetail.this, getString(R.string.no_app_store), Toast.LENGTH_SHORT).show();
 
             }
 
@@ -233,7 +266,6 @@ public class NewsDetail extends BaseActivity {
         fb_native_ad_layout.loadAd();
 
     }*/
-
 
 
     public static void verifyStoragePermissions(Activity activity) {
