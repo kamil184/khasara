@@ -63,6 +63,7 @@ public class Main_Menu extends BaseActivity {
 
         minterstitial = new InterstitialAd(this);
         minterstitial.setAdUnitId(getString(R.string.interstitial_sp_yes));
+        minterstitial.loadAd(new AdRequest.Builder().build());
 
         interstitialAd = new com.facebook.ads.InterstitialAd(this, getString(R.string.fb_interstitial_front));
         interstitialAd.loadAd();
@@ -96,13 +97,13 @@ public class Main_Menu extends BaseActivity {
                     if (interstitialAd.isAdLoaded()) {
                         interstitialAd.show();
                     } else {
-                        AdRequest adRequest = new AdRequest.Builder().build();
-                        minterstitial.loadAd(adRequest);
+                        minterstitial.show();
                         minterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
                             @Override
                             public void onAdClosed() {
                                 Intent main = new Intent(Main_Menu.this, Khasara.class);
                                 Main_Menu.this.startActivity(main);
+                                minterstitial.loadAd(new AdRequest.Builder().build());
                             }
 
                             @Override
@@ -113,7 +114,6 @@ public class Main_Menu extends BaseActivity {
 
                             @Override
                             public void onAdLoaded() {
-                                minterstitial.show();
                             }
                         });
 
@@ -173,13 +173,13 @@ public class Main_Menu extends BaseActivity {
                     showDialogInternet();
                 } else {
                     bu1.clearAnimation();
-                    AdRequest adRequest = new AdRequest.Builder().build();
-                    minterstitial.loadAd(adRequest);
+                    minterstitial.show();
                     minterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
                         @Override
                         public void onAdClosed() {
                             Intent main = new Intent(Main_Menu.this, HomeActivity.class);
                             Main_Menu.this.startActivity(main);
+                            minterstitial.loadAd(new AdRequest.Builder().build());
                         }
 
                         @Override
@@ -190,7 +190,6 @@ public class Main_Menu extends BaseActivity {
 
                         @Override
                         public void onAdLoaded() {
-                            minterstitial.show();
                         }
                     });
 
@@ -205,24 +204,24 @@ public class Main_Menu extends BaseActivity {
                     showDialogInternet();
                 } else {
                     bu1.clearAnimation();
-                    AdRequest adRequest = new AdRequest.Builder().build();
-                    minterstitial.loadAd(adRequest);
+                    minterstitial.show();
                     minterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
                         @Override
                         public void onAdClosed() {
                             Intent main = new Intent(Main_Menu.this, NewsApp.class);
                             Main_Menu.this.startActivity(main);
+                            minterstitial.loadAd(new AdRequest.Builder().build());
                         }
 
                         @Override
                         public void onAdFailedToLoad(int errorCode) {
                             Intent main = new Intent(Main_Menu.this, NewsApp.class);
                             Main_Menu.this.startActivity(main);
+
                         }
 
                         @Override
                         public void onAdLoaded() {
-                            minterstitial.show();
                         }
                     });
 
@@ -237,13 +236,13 @@ public class Main_Menu extends BaseActivity {
                     showDialogInternet();
                 } else {
                     bu1.clearAnimation();
-                    AdRequest adRequest = new AdRequest.Builder().build();
-                    minterstitial.loadAd(adRequest);
+                    minterstitial.show();
                     minterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
                         @Override
                         public void onAdClosed() {
                             Intent main = new Intent(Main_Menu.this, LoanMenuActivity.class);
                             Main_Menu.this.startActivity(main);
+                            minterstitial.loadAd(new AdRequest.Builder().build());
                         }
 
                         @Override
@@ -254,7 +253,6 @@ public class Main_Menu extends BaseActivity {
 
                         @Override
                         public void onAdLoaded() {
-                            minterstitial.show();
                         }
                     });
 
@@ -269,13 +267,13 @@ public class Main_Menu extends BaseActivity {
                     showDialogInternet();
                 } else {
                     try {
-                        AdRequest adRequest = new AdRequest.Builder().build();
-                        minterstitial.loadAd(adRequest);
+                        minterstitial.show();
                         minterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
                             @Override
                             public void onAdClosed() {
                                 Intent main = new Intent(Main_Menu.this,    FaqActivity.class);
                                 Main_Menu.this.startActivity(main);
+                                minterstitial.loadAd(new AdRequest.Builder().build());
                             }
 
                             @Override
@@ -286,7 +284,6 @@ public class Main_Menu extends BaseActivity {
 
                             @Override
                             public void onAdLoaded() {
-                                minterstitial.show();
                             }
                         });
 
@@ -302,13 +299,13 @@ public class Main_Menu extends BaseActivity {
                 if (!ITC.checkConnection(getApplicationContext())) {
                     showDialogInternet();
                 } else {
-                    AdRequest adRequest = new AdRequest.Builder().build();
-                    minterstitial.loadAd(adRequest);
+                    minterstitial.show();
                     minterstitial.setAdListener(new com.google.android.gms.ads.AdListener() {
                         @Override
                         public void onAdClosed() {
                             Intent main = new Intent(Main_Menu.this, VillageApp.class);
                             Main_Menu.this.startActivity(main);
+                            minterstitial.loadAd(new AdRequest.Builder().build());
                         }
 
                         @Override
@@ -319,7 +316,6 @@ public class Main_Menu extends BaseActivity {
 
                         @Override
                         public void onAdLoaded() {
-                            minterstitial.show();
                         }
                     });
 
